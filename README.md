@@ -26,7 +26,7 @@ After completing the circuit on a breadboard I soldered it together and shrink-w
 After the circuit is completed I started to set up the physical parts.
 
 Here is a picture of it put together:
-# PICTURE
+![thing](https://user-images.githubusercontent.com/15959693/62497302-8ded3580-b7a9-11e9-83d8-7b21d625c3b7.jpg)
 
 This was meant to attach right onto the hot water pipe so pipes would need to be cut for this project.
 
