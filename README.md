@@ -28,11 +28,11 @@ After the circuit is completed I started to set up the physical parts.
 Here is a picture of it put together:
 ![thing](https://user-images.githubusercontent.com/15959693/62497302-8ded3580-b7a9-11e9-83d8-7b21d625c3b7.jpg)
 
-This was meant to attach right onto the hot water pipe so pipes would need to be cut for this project.
+This was meant to attach right onto the hot water pipe, so pipes would need to be cut for this project.
 
 First after installing noobs on the raspberry pi I wrote programs onto the pi that would create a website that would be used to control the a/c. To do this I first created a simple node js website. After that I installed socket.io using npm install. This website helped me create a simple webserver and install socket.io: https://www.w3schools.com/nodejs/nodejs_raspberrypi.asp. My main html webpage is above. The code in routes.js and index.js was written into the corresponding files so an outside device can talk to the pi. The python files were also made in the same folder.
 
-The main communication method is a raspberry pi hosting a web server that any device on the internet can go on. I made an android app that can connect to the raspberry pi server for easier temperature control. The code to the phone app is here: # https://github.com/sreekarc/something. In the phone app code I had to set the raspberry pi ip address as the ip address to connect too in the phone's socket.io
+The main communication method is a raspberry pi hosting a web server that any device on the internet can go on. I made an android app that can connect to the raspberry pi server for easier temperature control. The code to the phone app is here: https://github.com/sreekarc/Smart-Valve-Phone-App. In the phone app code I had to set the raspberry pi ip address as the ip address to connect too in the phone's socket.io
 
 After all the code was done there was one last thing I had to do, which was make it so that the code would all start running as the pi booted up. This way it could be headless. To do this I first went to the terminal and wrote `sudo nano /etc/rc.local`. Then I added these three lines of code to the end of the file right before "exit 0":
 
