@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Valve Thing</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" type="text/css" href="dist/semantic.min.css">
+</head>
+<style>
+.center {
+    margin: auto;
+    width:15%;
+    padding: 10px;
+}
+</style>
+<body>
+
+<h1>Valve Project</h1>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script> 
+
+<div class="center">
+	<div id="display" style="width:100%;height:150px;background-color:lightgrey;font-size:100px;text-align:center;line-height:140%;margin:5px;"></div>
+	<button id="toggle" style="width:100%; height:150px;margin:5px;" onclick="temperatureOff()">TOGGLE</button>
+</div>
+
+<script>
+	var valve;
+	if(localStorage.getItem("state") == "on"){
+		valve = true;
+	}
+	else{
+		valve = false;
+	}
+	console.log(valve);
+
+	if(valve==true){
+		document.getElementById("display").innerHTML = "on";
+	}
+	else{
+		document.getElementById("display").innerHTML = "off";
+	}
+
+</script>
+
+<script>
+	function SendFunc(power) {
+		if(power == "on"){
+			var msg = JSON.stringify({"temp":"on"});
+		}
+		else{
+			var msg = JSON.stringify({"temp":"off"});
+		}
+        	console.log(msg)
+        	var socket = io();
+        	socket.emit('temperature', msg);
+        	return;
+   	}
+	
+	function temperatureOff(){
+		if(document.getElementById("display").innerHTML == "off"){
+			valce = true;
+			document.getElementById("display").innerHTML = "on";
+			localStorage.setItem("state", "on");
+			SendFunc("on");
+		}
+		else{
+			valve = false;
+			document.getElementById("display").innerHTML = "off";
+			localStorage.setItem("state", "off");
+			SendFunc("off");
+
+		}
+	}
+
+</script>
+
+</body>
+</html> 
